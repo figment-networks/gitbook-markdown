@@ -18,7 +18,7 @@ export default function SideNote({ text, children }: { text: string, children: a
       );
     }
 
-    const firstNode = textMatches[1] as string;
+    const firstNode = textMatches[2] as string;
     const renderedChildren = children.map((child, index) => {
       if (index === 0) {
         return `${firstNode} `;
