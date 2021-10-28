@@ -6,6 +6,8 @@ import {extractStringFromTree} from "../../utils/string-utils";
 import {GitbookHintType, gitbookHintTypeToAntd} from "../../utils/markdown-utils";
 import {StyledAlert} from "../../index.styles";
 import VideoPlayer from "../VideoPlayer";
+import SideNote from './Sidenote';
+import { MATCH_REGEX } from '../../utils/match-utils';
 
 type PProps = {
   children: React.ReactNode & React.ReactNode[];
@@ -75,6 +77,8 @@ const P = (props: PProps) => {
       }
 
       return null;
+    } else if (text.includes(MATCH_REGEX.SIDENOTE)) {
+      return <SideNote text={text} children={children} />
     } else if (text.includes('{% endcode')) {
       return null;
     }

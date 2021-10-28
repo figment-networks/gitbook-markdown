@@ -114,6 +114,16 @@ Hint.args = {
   children: hint,
 };
 
+const sidenote = `
+{% sidenote title="🏋️ Daniel Gamboa teaches Solana" %}
+You can [**join us on Discord**](https://discord.gg/fszyM7K), if you have questions or [**join us on Discord**](https://discord.gg/fszyM7K) want help completing the tutorial.
+{% endsidenote %}
+`;
+export const Sidenote = Template.bind({});
+Sidenote.args = {
+  children: sidenote,
+};
+
 
 export const File = Template.bind({});
 File.args = {
