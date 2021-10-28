@@ -1,7 +1,7 @@
 import React from 'react';
 import {SRLWrapper} from 'simple-react-lightbox';
 
-import {StyledImage} from "./Img.styles";
+import {StyledImage, StyledImageContainer, StyledLabel} from "./Img.styles";
 
 const lightboxOptions = {
   buttons: {
@@ -21,6 +21,7 @@ const lightboxOptions = {
 type ImgProps = {
   src: string;
   alt?: string;
+  title?: string;
 }
 
 const Img = (props: ImgProps): JSX.Element => {
@@ -39,20 +40,30 @@ const Img = (props: ImgProps): JSX.Element => {
 
     return (
       <SRLWrapper options={lightboxOptions}>
-        <a href={absoluteSrc}>
-          <StyledImage
-            src={absoluteSrc}
-            alt={alt}
-          />
-        </a>
+        <StyledImageContainer>
+          <a href={absoluteSrc}>
+            <StyledImage
+              src={absoluteSrc}
+              alt={alt}
+            />
+          </a>
+          {alt && (
+            <StyledLabel>{alt}</StyledLabel>
+          )}
+        </StyledImageContainer>
       </SRLWrapper>
     );
   } else {
     return (
       <SRLWrapper options={lightboxOptions}>
-        <a href={src}>
-          <StyledImage src={src} alt={alt} />
-        </a>
+        <StyledImageContainer>
+          <a href={src}>
+            <StyledImage src={src} alt={alt} />
+          </a>
+          {alt && (
+            <StyledLabel>{alt}</StyledLabel>
+          )}
+        </StyledImageContainer>
       </SRLWrapper>
     );
   }
