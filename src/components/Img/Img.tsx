@@ -21,7 +21,6 @@ const lightboxOptions = {
 type ImgProps = {
   src: string;
   alt?: string;
-  title?: string;
 }
 
 const Img = (props: ImgProps): JSX.Element => {
