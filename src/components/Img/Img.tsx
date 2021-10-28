@@ -1,0 +1,61 @@
+import React from 'react';
+import {SRLWrapper} from 'simple-react-lightbox';
+
+import {StyledImage} from "./Img.styles";
+
+const lightboxOptions = {
+  buttons: {
+    showAutoplayButton: false,
+    showCloseButton: true,
+    showDownloadButton: true,
+    showFullscreenButton: true,
+    showNextButton: false,
+    showPrevButton: false,
+    showThumbnailsButton: false,
+  },
+  thumbnails: {
+    showThumbnails: false,
+  },
+};
+
+type ImgProps = {
+  src: string;
+  alt?: string;
+}
+
+const Img = (props: ImgProps): JSX.Element => {
+  const src = props.src as string;
+  const alt = props.alt as string;
+
+  const isRelativeGitbookUrl =
+    src.includes('.gitbook') &&
+    !src.includes('http') &&
+    !src.includes('https');
+
+  if (isRelativeGitbookUrl) {
+    const prefix =
+      'https://raw.githubusercontent.com/figment-networks/datahub-learn/master/';
+    const absoluteSrc = `${prefix}${src.replace(/\.{1,2}\//g, '')}`;
+
+    return (
+      <SRLWrapper options={lightboxOptions}>
+        <a href={absoluteSrc}>
+          <StyledImage
+            src={absoluteSrc}
+            alt={alt}
+          />
+        </a>
+      </SRLWrapper>
+    );
+  } else {
+    return (
+      <SRLWrapper options={lightboxOptions}>
+        <a href={src}>
+          <StyledImage src={src} alt={alt} />
+        </a>
+      </SRLWrapper>
+    );
+  }
+};
+
+export default Img;
