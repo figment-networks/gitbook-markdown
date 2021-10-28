@@ -32,8 +32,8 @@ const CustomMarkdown = (props: CustomMarkdownProps): JSX.Element => {
         hr: ({sourcePosition}) => {
           return <Hr sourcePosition={sourcePosition} />;
         },
-        a: ({href}) => {
-          return <A href={href} />;
+        a: ({href, children}) => {
+          return <A href={href}>{children}</A>;
         },
         p: ({children}) => {
           return <P>{children}</P>
