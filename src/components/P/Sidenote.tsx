@@ -1,6 +1,6 @@
 import { Collapse } from 'antd'
 import React from 'react'
-import styled from 'styled-components'
+import {StyledCollapse, StyledTitle} from './Sidenote.styles'
 
 const {Panel} = Collapse
 
@@ -29,14 +29,3 @@ export default function SideNote({ text, children }: { text: string, children: a
 
   return null;
 }
-
-const StyledCollapse = styled(Collapse)`
-  padding: 10px;
-  background: rgba(114, 146, 176, 0.1);
-  border-radius: 4px;
-  margin: 15px 0;
-`
-
-const StyledTitle = styled.span`
-  font-weight: 600;
-`
