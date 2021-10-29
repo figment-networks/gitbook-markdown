@@ -53,8 +53,8 @@ const CustomMarkdown = (props: CustomMarkdownProps): JSX.Element => {
         li: ({children}) => {
           return <Li>{children}</Li>
         },
-        img: ({src, alt, title}) => {
-          return <Img src={src as string} alt={alt} title={title} />
+        img: ({src, alt}) => {
+          return <Img src={src as string} alt={alt} />
         },
       }}
     />
