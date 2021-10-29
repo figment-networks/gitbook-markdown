@@ -134,3 +134,9 @@ export const Image = Template.bind({});
 Image.args = {
   children: `![](../../../.gitbook/assets/pathways/ceramic/idx.png)`,
 };
+
+export const ImageWithCaption = Template.bind({});
+ImageWithCaption.args = {
+  children: `![Example caption](../../../.gitbook/assets/pathways/ceramic/idx.png)`,
+};
+
